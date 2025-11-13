@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  username     String    @unique @db.VarChar(30)
+  passwordHash String
+  products     Product[]
+}
+
+model Product {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  description String
+  belongsToId String
+  belongsTo   User     @relation(fields: [belongsToId], references: [id], onDelete: Cascade)
+  updates     Update[]
+}
+
+model Update {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title   String
+  body    String
+  version String
+
+  productId    String
+  product      Product       @relation(fields: [productId], references: [id], onDelete: Cascade)
+  updatePoints UpdatePoint[]
+}
+
+enum UPDATE_POINT_TYPE {
+  FEATURE
+  IMPROVEMENT
+  BUGFIX
+}
+
+model UpdatePoint {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  contents String
+  type     UPDATE_POINT_TYPE
+
+  updateId String
+  update   Update @relation(fields: [updateId], references: [id], onDelete: Cascade)
+}

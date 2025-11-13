@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // Environment setup & latest features
+    "lib": ["ES2024"],
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleDetection": "force", 
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    
+    // Best practices
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "include": ["src/**/*"],
+}
