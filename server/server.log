@@ -1,3 +1,4 @@
-::1 - - [12/Nov/2025:16:28:32 +0000] "GET /api/user/734a57f7-93e9-4e3b-9491-25416fa12640 HTTP/1.1" 200 111 "-" "PostmanRuntime/7.39.1"
-::1 - - [12/Nov/2025:16:28:58 +0000] "GET /api/user/734a57f7-93e9-4e3b-9491-25416fa12640 HTTP/1.1" 200 111 "-" "PostmanRuntime/7.39.1"
-::1 - - [12/Nov/2025:18:54:59 +0000] "GET /api/user/734a57f7-93e9-4e3b-9491-25416fa12640 HTTP/1.1" 200 111 "-" "PostmanRuntime/7.39.1"
+::1 - - [17/Nov/2025:20:56:17 +0000] "OPTIONS /api/signin HTTP/1.1" 204 0 "http://127.0.0.1:5050/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0"
+::1 - - [17/Nov/2025:20:56:18 +0000] "POST /api/signin HTTP/1.1" 200 411 "http://127.0.0.1:5050/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0"
+::1 - - [17/Nov/2025:20:56:18 +0000] "OPTIONS /api/user/me HTTP/1.1" 204 0 "http://127.0.0.1:5050/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0"
+::1 - - [17/Nov/2025:20:56:18 +0000] "GET /api/user/me HTTP/1.1" 304 - "http://127.0.0.1:5050/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0"

@@ -1,5 +1,4 @@
 import type { JwtPayload } from "jsonwebtoken";
-import type { Request } from "express";
 
 declare global {
   namespace NodeJS {
@@ -9,6 +8,7 @@ declare global {
       NODE_ENV: string;
       PORT: number;
       DEBUG: string;
+      CLIENT_URL: string;
     }
   }
 

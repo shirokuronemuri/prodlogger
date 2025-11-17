@@ -14,4 +14,5 @@ export default {
   dbUrl: process.env.DATABASE_URL,
   debug: process.env.DEBUG === "true",
   jwtSecret: process.env.JWT_SECRET,
+  clientUrl: process.env.CLIENT_URL,
 };
