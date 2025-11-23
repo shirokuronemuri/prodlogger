@@ -4,12 +4,12 @@ export interface User {
   createdAt: Date;
 }
 
-export interface Product {
+export interface Project {
   name: string;
   description: string;
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   belongsToId: string;
 }
 

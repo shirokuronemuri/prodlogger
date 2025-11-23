@@ -1,8 +1,8 @@
 import { api } from '@/api/axios';
 import type { User } from '@/types';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { defineStore } from 'pinia';
-import { reactive, ref } from 'vue';
+import { reactive } from 'vue';
 
 export const useAuthStore = defineStore('auth', () => {
   interface State {
@@ -27,6 +27,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (!user) {
       state.user = await fetchUser();
     }
+    state.isSignedIn = true;
   };
 
   const fetchUser = async (): Promise<User | null> => {
@@ -56,6 +57,8 @@ export const useAuthStore = defineStore('auth', () => {
     state.token = null;
     state.user = null;
     state.isSignedIn = false;
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
   };
 
   return { state, setToken, loadState, logout };
